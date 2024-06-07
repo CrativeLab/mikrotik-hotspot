@@ -1,91 +1,148 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-	<head>
-		<title>21 сургууль > Нэвтрэх</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta http-equiv="pragma" content="no-cache" />
-		<meta http-equiv="expires" content="-1" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
-		<link rel="stylesheet" type="text/css" media="all" href="css/tailwind.min.css">
-	</head>
-	<body>
-		<section class="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-			$(if chap-id)
-				<form name="sendin" action="$(link-login-only)" method="post">
-					<input type="hidden" name="username" />
-					<input type="hidden" name="password" />
-					<input type="hidden" name="dst" value="$(link-orig)" />
-					<input type="hidden" name="popup" value="true" />
-				</form>
-		
-				<script type="text/javascript" src="/md5.js"></script>
-				<script type="text/javascript">
-				<!--
-					function doLogin() {
-					document.sendin.username.value = document.login.username.value;
-					document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
-					document.sendin.submit();
-					return false;
-					}
-				//-->
-				</script>
-			$(endif)
+  <head>
+    <title>21 сургууль > Нэвтрэх</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="styles/tailwind.min.css"
+    />
+  </head>
+  <body>
+    <section
+      class="min-h-screen flex flex-col items-center justify-center bg-slate-100 dark:bg-ctp-base"
+    >
+      $(if chap-id)
+      <form name="sendin" action="$(link-login-only)" method="post">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+      </form>
 
+      <script type="text/javascript" src="/md5.js"></script>
+      <script type="text/javascript">
+        <!--
+        function doLogin() {
+          document.sendin.username.value = document.login.username.value;
+          document.sendin.password.value = hexMD5(
+            "$(chap-id)" + document.login.password.value + "$(chap-challenge)"
+          );
+          document.sendin.submit();
+          return false;
+        }
+        //-->
+      </script>
+      $(endif)
 
-			<div class=" flex flex-col border-gray-200 bg-white border px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-lg w-50 max-w-md">
-				<div class="items-center flex justify-center">
-					<img src="img/logo.svg" alt="Home" class="h-auto w-2/3" />
-				</div>
-				<div class="w-full text-center my-2">
-					<p class="text-gray-600 text-sm">Нэвтрэх</p>
-					$(if error)
-						<div class="text-red-500 text-sm">$(error)</div>
-					$(endif)
-				</div>
+      <div
+        class="flex flex-col shadow-lg bg-white dark:bg-ctp-mantle px-6 sm:px-8 md:px-10 lg:px-12 py-16 rounded-2xl max-w-lg"
+      >
+        <div class="w-full mb-12">
+          <p class="text-black dark:text-white text-lg">
+            21-р сургуулийн интернетийн үйлчилгээ
+          </p>
+          <p class="text-black dark:text-white text-xl font-bold">
+            Нэвтрэх / Login
+          </p>
+        </div>
+        $(if error)
+        <div class="toast toast-center toast-top">
+          <div class="alert alert-error">
+            <span>$(error)</span>
+          </div>
+        </div>
+        $(endif)
 
-				<form class="w-full" id="loginform" name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
-					<input type="hidden" name="dst" value="$(link-orig)" />
-					<input type="hidden" name="popup" value="true" />
-	
-					<div class="mb-3 w-full">
-						<input class=" text-sm placeholder-gray-400 px-4 rounded-lg border border-gray-200 bg-gray-100 w-full py-3 focus:outline-none focus:border-blue-400 " type="text" name="username" value="$(username)" required="" placeholder="Нэвтрэх нэр">
-					</div>
-					<div class="mb-3 w-full">
-						<input class=" text-sm placeholder-gray-400 px-4 rounded-lg border border-gray-200 bg-gray-100 w-full py-3 focus:outline-none focus:border-blue-400 " name="password" type="password" required="" placeholder="Нууц үг">
-					</div>
-					<div class="flex w-full my-3">
-						<button class="flex mt-2 items-center justify-center focus:outline-none text-white font-bold text-xs tracking-wide bg-blue-400 hover:bg-blue-500 rounded-lg py-3 w-full transition duration-150 ease-in" 
-							type="submit">
-							Нэвтрэх
-						</button>
-					</div>		
-					$(if trial == 'yes')
-						<div class="w-full flex justify-center">
-							<div class="flex justify-evenly space-x-2 w-64">
-								<span class="bg-gray-300 h-px flex-grow t-2 relative top-2"></span>
-								<span class="flex-none text-xs uppercase text-gray-400 font-semibold">or</span>
-								<span class="bg-gray-300 h-px flex-grow t-2 relative top-2"></span>
-							</div>
-						</div>
-						<div class="flex w-full my-3">
-							<a id="btnLoginAsGuest" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)" class=" flex items-center justify-center focus:outline-none hover:text-gray-200 text-white font-bold text-xs tracking-wide bg-gray-600 hover:bg-gray-700 rounded-lg py-3 w-full transition duration-150 ease-in ">
-								<span class="mr-2">Түр нэвтрэх</span>
-							</a>
-						</div>
-					$(endif)
-				</form>
-			</div>
-			$(if error)
-				
-			$(else)	
-			$(endif)
+        <form
+          class="w-full"
+          id="loginform"
+          name="login"
+          action="$(link-login-only)"
+          method="post"
+          $(if
+          chap-id)
+          onSubmit="return doLogin()"
+          $(endif)
+        >
+          <input type="hidden" name="dst" value="$(link-orig)" />
+          <input type="hidden" name="popup" value="true" />
 
-		</section>
-	</body>
-	<script type="text/javascript">
-		  document.login.username.focus();
-	</script>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
+          <div class="mb-3 w-full">
+            <input
+              class="text-sm placeholder-gray-400 px-4 rounded-xl border border-gray-200 bg-gray-100 w-full py-3 focus:outline-none focus:border-blue-400"
+              type="text"
+              name="username"
+              value="$(username)"
+              required=""
+              placeholder="Нэвтрэх нэр"
+            />
+          </div>
+          <div class="mb-3 w-full">
+            <input
+              class="text-sm placeholder-gray-400 px-4 rounded-xl border border-gray-200 bg-gray-100 w-full py-3 focus:outline-none focus:border-blue-400"
+              name="password"
+              type="password"
+              required=""
+              placeholder="Нууц үг"
+            />
+          </div>
+          <div class="flex w-full my-5">
+            <button
+              class="btn w-full text-white font-medium text-sm rounded-2xl tracking-wide bg-blue-600 hover:bg-blue-700"
+              type="submit"
+            >
+              Нэвтрэх
+            </button>
+          </div>
+          $(if trial == 'yes')
+          <div class="w-full flex justify-center">
+            <div class="flex justify-evenly space-x-2 w-64">
+              <span
+                class="bg-gray-300 h-px flex-grow t-2 relative top-2"
+              ></span>
+              <span
+                class="flex-none text-xs uppercase text-gray-400 font-semibold"
+                >or</span
+              >
+              <span
+                class="bg-gray-300 h-px flex-grow t-2 relative top-2"
+              ></span>
+            </div>
+          </div>
+          <div class="flex w-full my-3">
+            <a
+              id="btnLoginAsGuest"
+              href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
+              class="btn font-medium text-sm rounded-2xl tracking-wide text-white bg-gray-600 hover:bg-gray-700 w-full"
+            >
+              <span class="mr-2">Түр нэвтрэх</span>
+            </a>
+          </div>
+          $(endif)
+          <div class="items-end flex justify-end">
+            <img
+              src="img/mikrotik-poweredby.svg"
+              alt="Home"
+              class="h-auto w-2/3"
+            />
+          </div>
+        </form>
+      </div>
+      $(if error) $(else) $(endif)
+    </section>
+  </body>
+  <script type="text/javascript">
+    document.login.username.focus();
+  </script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
 </html>

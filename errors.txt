@@ -12,12 +12,12 @@
 # It should never happen. If it will, error page will be shown
 # displaying this error message (error-orig will describe what has happened)
 
-internal-error = internal error ($(error-orig))
+internal-error = Серверт алдаа гарлаа. Та дараа дахин оролдоно уу. ($(error-orig))
 
 # config-error
 # Should never happen if hotspot is configured properly.
 
-config-error = configuration error ($(error-orig))
+config-error = Серверт алдаа гарлаа. Та дараа дахин оролдоно уу. ($(error-orig))
 
 # not-logged-in
 # Will happen, if status or logout page is requested by user,
@@ -29,7 +29,7 @@ not-logged-in = you are not logged in (ip $(ip))
 # IP address for user is to be assigned from ip pool, but there are no more
 # addresses in that pool
 
-ippool-empty = cannot assign ip address - no more free addresses from pool
+ippool-empty = Олон хэрэглэгч ашгилж байгаа тул та дараа дахин нэвтрэн үү.
 
 # shutting-down
 # When shutdown is executed, new clients are not accepted
