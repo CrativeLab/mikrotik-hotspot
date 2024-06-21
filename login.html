@@ -11,6 +11,7 @@
   </head>
   <body>
     <section class="min-h-screen flex flex-col items-center justify-center bg-slate-100 dark:bg-ctp-base">
+      <!-- Login request api -->
       $(if chap-id)
       <form name="sendin" action="$(link-login-only)" method="post">
         <input type="hidden" name="username" />
@@ -19,26 +20,25 @@
         <input type="hidden" name="popup" value="true" />
       </form>
 
-      <script type="text/javascript" src="/md5.js"></script>
+      <script type="text/javascript" src="/js/md5.js"></script>
       <script type="text/javascript">
-        <!--
         function doLogin() {
           document.sendin.username.value = document.login.username.value;
           document.sendin.password.value = hexMD5("$(chap-id)" + document.login.password.value + "$(chap-challenge)");
           document.sendin.submit();
           return false;
         }
-        //-->
       </script>
       $(endif)
 
-      <div class="flex flex-col shadow-lg bg-white dark:bg-ctp-mantle px-6 sm:px-8 md:px-14 lg:px-16 py-16 rounded-2xl max-w-lg">
+      <!-- UI -->
+      <div class="flex flex-col shadow-lg bg-white dark:bg-ctp-mantle px-14 lg:px-16 py-16 rounded-2xl max-w-lg">
         <div class="w-full mb-12">
           <p class="text-black dark:text-white text-lg">21-р сургуулийн интернетийн үйлчилгээ</p>
           <p class="text-black dark:text-white text-xl font-bold">Нэвтрэх / Login</p>
         </div>
         $(if error)
-        <div class="toast toast-center toast-top">
+        <div class="toast toast-center toast-top md:toast-end">
           <div class="alert alert-error">
             <span>$(error)</span>
           </div>
@@ -101,9 +101,11 @@
       </div>
       $(if error) $(else) $(endif)
     </section>
+
+    <!-- Util script  -->
+    <script type="text/javascript">
+      document.login.username.focus();
+    </script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
   </body>
-  <script type="text/javascript">
-    document.login.username.focus();
-  </script>
-  <script type="text/javascript" src="js/jquery.min.js"></script>
 </html>

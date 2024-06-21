@@ -9,4 +9,7 @@ module.exports = {
       defaultFlavour: "mocha",
     }),
   ],
+  daisyui: {
+    themes: "dark",
+  },
 };
