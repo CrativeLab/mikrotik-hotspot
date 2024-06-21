@@ -25,7 +25,7 @@
 			$(endif)
 				function openLogout() {
 				if (window.name != 'hotspot_status') return true;
-					open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+					open('$(link-logout)?erase-cookie=on', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
 				window.close();
 				return false;
 				}
@@ -99,6 +99,9 @@
 						<input class="btn w-full text-white font-medium text-sm rounded-2xl tracking-wide bg-blue-600 hover:bg-blue-700" type="submit" value="ГарахㅣLogout">
 					</div>
 					$(endif)
+					<div class="items-end flex justify-end">
+            <img src="img/mikrotik-poweredby.svg" alt="Home" class="h-auto w-2/3" />
+          </div>
 				</form>
 			</div>
 		</div>
